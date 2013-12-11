@@ -12,29 +12,34 @@
       </ul>
     </div>
   <% end %>
-  
-  <div data-hook="add_product_name" class="field twelve columns alpha">
-    <%= label_tag :variant_id, Spree.t(:name_or_sku) %>
-    <%= f.hidden_field :variant_id, :class => "variant_autocomplete fullwidth" %>
-  </div>
 
   <div class="field">
     <%= f.label :slot_type_id %><br />
     <%= f.select :slot_type_id, options_for_select(Spree::SlotType.all.map{|st| [st.name, st.id]}) %>
   </div>
+  
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+  
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  
+  <div data-hook="add_product_name" class="field twelve columns alpha">
+    <%= label_tag :variant_id, Spree.t(:name_or_sku) %>
+    <%= f.hidden_field :variant_id, :class => "variant_autocomplete fullwidth" %>
+  </div>
+  
   <div class="field">
     <%= f.label :link_url %><br />
     <%= f.text_field :link_url %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>
