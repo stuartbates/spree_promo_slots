@@ -2,7 +2,7 @@
 
 <p>
   <b>Product:</b>
-  <%= @promo_slot.product_id %>
+  <%= @promo_slot.variant_id %>
 </p>
 
 <p>
@@ -26,5 +26,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_promo_slot_path(@promo_slot) %> |
-<%= link_to 'Back', promo_slots_path %>
+<%= link_to 'Edit', edit_admin_promo_slot_path(@promo_slot) %> |
+<%= link_to 'Back', admin_promo_slots_path %>

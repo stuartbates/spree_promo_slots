@@ -1,4 +1,6 @@
-<%= form_for(@promo_slot) do |f| %>
+<%= render :partial => "spree/admin/variants/autocomplete", :formats => :js %>
+
+<%= form_for([:admin, @promo_slot]) do |f| %>
   <% if @promo_slot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@promo_slot.errors.count, "error") %> prohibited this promo_slot from being saved:</h2>
@@ -10,14 +12,15 @@
       </ul>
     </div>
   <% end %>
+  
+  <div data-hook="add_product_name" class="field twelve columns alpha">
+    <%= label_tag :variant_id, Spree.t(:name_or_sku) %>
+    <%= f.hidden_field :variant_id, :class => "variant_autocomplete fullwidth" %>
+  </div>
 
   <div class="field">
-    <%= f.label :product_id %><br />
-    <%= f.number_field :product_id %>
-  </div>
-  <div class="field">
-    <%= f.label :slot_type %><br />
-    <%= f.number_field :slot_type %>
+    <%= f.label :slot_type_id %><br />
+    <%= f.select :slot_type_id, options_for_select(Spree::SlotType.all.map{|st| [st.name, st.id]}) %>
   </div>
   <div class="field">
     <%= f.label :title %><br />

@@ -1,31 +1,27 @@
-<h1>Listing promo_slots</h1>
-
-<table>
+<h1>Listing Promo Slots</h1>
+<br />
+<table class="index sortable" id="listing_promo_slots" data-sortable-link="<%= update_positions_admin_promo_slots_url() %>">
   <tr>
-    <th>Product</th>
-    <th>Slot type</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Link url</th>
     <th></th>
+    <th>Title</th>
+    <th>Slot type</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @promo_slots.each do |promo_slot| %>
-  <tr>
-    <td><%= promo_slot.product_id %></td>
-    <td><%= promo_slot.slot_type %></td>
+  <tr id="<%= spree_dom_id promo_slot %>" data-hook="admin_promo_slots_index_rows" class="<%= cycle('odd', 'even') %>">
+    <td class="no-border">
+      <span class="handle"></span>
+    </td>
     <td><%= promo_slot.title %></td>
-    <td><%= promo_slot.description %></td>
-    <td><%= promo_slot.link_url %></td>
-    <td><%= link_to 'Show', promo_slot %></td>
-    <td><%= link_to 'Edit', edit_promo_slot_path(promo_slot) %></td>
-    <td><%= link_to 'Destroy', promo_slot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= promo_slot.slot_type.name %></td>
+    <td><%= link_to 'Edit', edit_admin_promo_slot_path(promo_slot) %></td>
+    <td><%= link_to 'Destroy', admin_promo_slot_path(promo_slot), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Promo slot', new_promo_slot_path %>
+<%= link_to 'New Promo slot', new_admin_promo_slot_path %>
