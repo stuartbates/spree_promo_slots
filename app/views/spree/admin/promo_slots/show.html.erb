@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @promo_slot.product_id %>
+</p>
+
+<p>
+  <b>Slot type:</b>
+  <%= @promo_slot.slot_type %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @promo_slot.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @promo_slot.description %>
+</p>
+
+<p>
+  <b>Link url:</b>
+  <%= @promo_slot.link_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_promo_slot_path(@promo_slot) %> |
+<%= link_to 'Back', promo_slots_path %>
