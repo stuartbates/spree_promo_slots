@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :slot_type_id %><br />
-    <%= f.select :slot_type_id, options_for_select(Spree::SlotType.all.map{|st| [st.name, st.id]}) %>
+    <%= f.select :slot_type_id, options_for_select(Spree::SlotType.all.map{|st| [st.name, st.id]}, @promo_slot.slot_type_id) %>
   </div>
   
   <div class="field">
